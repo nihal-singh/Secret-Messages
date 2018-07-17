@@ -1,0 +1,35 @@
+#!/bin/python3
+#----------------------------------------------------------------------------------------------------------
+#We can send and receive secret messages with a friend by using this encryption program .
+#This program make use of the caesar cipher which is a type of secret code, where you swap the 
+#letters around so that no-one can read your message.
+#---------------------------------------------------------------------------------------------------------
+import time
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+message  = input("Enter your message : ")
+key = input("Enter a Key : ")
+key = int(key)
+
+newMessage = ''
+
+for character in message:
+  if character in alphabet:
+    position = alphabet.find(character)
+    position += key
+    position %= 26
+    newMessage += alphabet[position]
+  else :
+    newMessage += character
+
+print("Encrypting message",end = '')
+
+for i in range(1, 5):
+  print('.', end='')
+  time.sleep(1)
+
+print('\n')
+print('Your encrypted message is : '+newMessage)
+  
+  
