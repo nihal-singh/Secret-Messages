@@ -1,0 +1,29 @@
+#!/bin/python3
+
+import time
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+message  = input("Enter Encrypted Message : ")
+key = input("Enter Provided Key : ")
+key = int(key)
+
+newMessage = ''
+
+print('Decrypting ......')
+
+for character in message:
+  if character in alphabet:
+    position = alphabet.find(character)
+    position -= key
+    position %= 26
+    newMessage += alphabet[position]
+    time.sleep(1)
+    print(alphabet[position],end = ' ')
+  else :
+    newMessage += character
+    print(character)
+print('\n')
+print('Your Decrypted  message is : '+newMessage)
+  
+  
